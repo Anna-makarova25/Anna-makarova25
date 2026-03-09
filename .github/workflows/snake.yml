@@ -2,12 +2,8 @@ name: Generate Snake 🐍
 
 on:
   schedule:
-    
-cron: "0 /12 * *"
-workflow_dispatch:
-push:
-  branches:
-main
+    - cron: "0 */12 * * *"   
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -15,19 +11,28 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      
-name: Generate snake animation
-      uses: Platane/snk@v3
-      with:
-        github_user_name: Anna-makarova25
-        outputs: dist/github-contribution-grid-snake.svg
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       
-name: Push snake animation to output branch
-      uses: crazy-max/ghaction-github-pages@v3.1.0
-      with:
-        target_branch: output
-        build_dir: dist
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate snake animation
+        uses: Platane/snk@v3
+        with:
+          github_user_name: Anna-makarova25
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-contribution-grid-snake.gif
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push snake animation to output branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
