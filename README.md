@@ -68,9 +68,7 @@ JavaScript (ES6+) | HTML5 | CSS3 | React | Node.js | REST API | Git | Agile/Scru
 ## 📫 How to reach me  
 
 
-[LinkedIn](www.linkedin.com/in/anna-stukalova) |
-
-[GitHub](https://github.com/Anna-makarova25) | [Email](makarovaanna07@gmail.com)  
+[LinkedIn](www.linkedin.com/in/anna-stukalova) | [GitHub](https://github.com/Anna-makarova25) | [Email](makarovaanna07@gmail.com)  
 
 ---
 
